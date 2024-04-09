@@ -1,4 +1,9 @@
 * {
+    --main-color: #0385ff;
+    --bg-choice-fail: #f73030;
+    --txt-choice-fail: #f73030;
+    --bg-choice-success: #19a70c;
+    --txt-choice-success: #19a70c;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #cef1fa;
 }
@@ -6,13 +11,9 @@
 .container {
     display: flex;
     width: 100%;
-    height: 100%;
+    height: 80vh;
     align-items: center;
     justify-content: center;
-}
-
-#home {
-
 }
 
 .btn-container {
@@ -26,14 +27,78 @@
     text-decoration: none;
     font-weight: bold;
     background-color: #fff;
-    color: #0385ff;
-    border: 2px solid #0385ff;
+    color: var(--main-color);
+    border: 2px solid var(--main-color);
     width: 200px;
     padding: 10px 20px;
     text-align: center;
+    transition: .4s ease-in-out;
 }
 
 .btn:hover {
-    background-color: #cef1fa;
-    /* transition: background-color .4s ease-in-out; */
+    background-color: var(--main-color);
+    color: #fff;
+    transition: .4s ease-in-out;
 }
+
+/* HOME */
+#home > h3 {
+    font-size: 2.8rem;
+    text-align: center;
+    color: var(--main-color);
+}
+
+/* GAME */
+#game {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+#game > #game-ques {
+    font-size: 2rem;
+    color: var(--main-color);
+}
+
+#game .game-ans {
+    display: flex;
+}
+#game .game-ans:hover {
+    box-shadow: 0 0 8px #aaa;
+    cursor: pointer;
+}
+
+#game .game-ans .game-ans-mark {
+    padding: 10px 25px;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    background-color: var(--main-color);
+}
+
+#game .game-ans .game-ans-choice {
+    padding: 15px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    width: 100%;
+}
+
+#game .game-ans.correct .game-ans-mark {
+    background-color: var(--bg-choice-success);
+}
+#game .game-ans.correct .game-ans-choice {
+    border-color: var(--bg-choice-success);
+    color: var(--txt-choice-success);
+}
+
+#game .game-ans.incorrect .game-ans-mark {
+    background-color: var(--bg-choice-fail);
+}
+#game .game-ans.incorrect .game-ans-choice {
+    border-color: var(--bg-choice-fail);
+    color: var(--txt-choice-fail);
+}
+
+/* PAGE END */
+/* HIGH SCORE */
