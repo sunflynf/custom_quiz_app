@@ -10,6 +10,7 @@
 
 .container {
     display: flex;
+    flex-direction: column;
     width: 100%;
     height: 80vh;
     align-items: center;
@@ -24,6 +25,7 @@
 }
 
 .btn {
+    cursor: pointer;
     text-decoration: none;
     font-weight: bold;
     background-color: #fff;
@@ -33,13 +35,14 @@
     padding: 10px 20px;
     text-align: center;
     transition: .4s ease-in-out;
+    
+    &:hover {
+        background-color: var(--main-color);
+        color: #fff;
+        transition: .2s ease;
+    }
 }
 
-.btn:hover {
-    background-color: var(--main-color);
-    color: #fff;
-    transition: .4s ease-in-out;
-}
 
 /* HOME */
 #home > h3 {
@@ -49,56 +52,111 @@
 }
 
 /* GAME */
+.btn-group {
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    .progress-bar {
+        display: block;
+        margin-top: auto;
+        height: 28px;
+        width: 140px;
+        border: 2px solid var(--main-color);
+        #current-progress {
+            width: 0;
+            height: 100%;
+            background-color: var(--main-color);
+        }
+    }
+    
+    .question, .score {
+        display: flex;
+        flex-direction: column;
+        .title {
+            font-size: .8rem;
+        }
+        .display {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--main-color)
+        }
+    }
+    .score {
+        align-items: end;
+    }
+}
+
 #game {
     width: 60%;
     display: flex;
     flex-direction: column;
     row-gap: 10px;
-}
-
-#game > #game-ques {
-    font-size: 2rem;
-    color: var(--main-color);
-}
-
-#game .game-ans {
-    display: flex;
-}
-#game .game-ans:hover {
-    box-shadow: 0 0 8px #aaa;
-    cursor: pointer;
-}
-
-#game .game-ans .game-ans-mark {
-    padding: 10px 25px;
-    display: flex;
-    align-items: center;
-    color: #fff;
-    background-color: var(--main-color);
-}
-
-#game .game-ans .game-ans-choice {
-    padding: 15px;
-    border: 1px solid #ccc;
-    background-color: #fff;
-    width: 100%;
-}
-
-#game .game-ans.correct .game-ans-mark {
-    background-color: var(--bg-choice-success);
-}
-#game .game-ans.correct .game-ans-choice {
-    border-color: var(--bg-choice-success);
-    color: var(--txt-choice-success);
-}
-
-#game .game-ans.incorrect .game-ans-mark {
-    background-color: var(--bg-choice-fail);
-}
-#game .game-ans.incorrect .game-ans-choice {
-    border-color: var(--bg-choice-fail);
-    color: var(--txt-choice-fail);
+    > #game-ques {
+        font-size: 2rem;
+        font-weight: 500;
+        /* color: var(--main-color); */
+    }
+    .game-ans {
+        display: flex;
+        &:hover {
+            box-shadow: 0 0 8px #aaa;
+            cursor: pointer;
+        }
+        .game-ans-mark {
+            padding: 10px 25px;
+            display: flex;
+            align-items: center;
+            color: #fff;
+            background-color: var(--main-color);
+        }
+        .game-ans-choice {
+            padding: 15px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            width: 100%;
+        }
+        
+        &.correct {
+            .game-ans-mark {
+                background-color: var(--bg-choice-success);
+            }
+            .game-ans-choice {
+                border-color: var(--bg-choice-success);
+                color: var(--txt-choice-success);
+            }    
+        } 
+        
+        &.incorrect {
+            .game-ans-mark {
+                background-color: var(--bg-choice-fail);
+            }
+            .game-ans-choice {
+                border-color: var(--bg-choice-fail);
+                color: var(--txt-choice-fail);
+            }
+        } 
+    }
 }
 
 /* PAGE END */
+#end-page {
+    h1 {
+       color: var(--main-color) ;
+    }
+    input[type="text"] {
+        background-color: #fff;
+        border: 1px solid var(--main-color);
+        height: 30px;
+        width: 220px;
+    }
+    .btn-container {
+        width: 220px;
+        .btn {
+            width: 100%;
+        }
+    }
+}
+
 /* HIGH SCORE */
